@@ -1,9 +1,12 @@
-list = [1,2,4]
 
-getSum :: [Int] -> Int
+import Data.Char
 
-getSum (i : rest) = i + getSum rest
+data Token = Digit | Alpha deriving (Show, Eq)
 
-getSum [] = 0
+tokenize :: String -> [Token]
 
-main = print $ getSum list
+tokenize (c : rest) =  if isDigit c then Digit : tokenize rest else Alpha : tokenize rest
+
+tokenize [] = []
+
+main = print $ tokenize "akshay21211"
