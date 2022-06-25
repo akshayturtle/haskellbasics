@@ -1,9 +1,14 @@
-main :: IO()
--- IO() tells that we can take input from user and perform output
+tupleFunction :: (Int, Int) -> (Int, Int)
+-- parenthesis makes it a tuple
+
+tupleFunction (a,b) = (a*2, b*2)
+
+tupleVariable :: (String, String)
+
+tupleVariable = ("Hello", "GoodBye")
 
 main = do
-userInput <- getLine
--- getLine takes input from user and store in userInput
-print userInput
-main
--- adding main at the end makes the call recursive 
+print $ tupleFunction (2,3)
+print $ tupleVariable
+
+-- functionas and variables both can be tuple
