@@ -1,14 +1,17 @@
-tupleFunction :: (Int, Int) -> (Int, Int)
--- parenthesis makes it a tuple
+data Token = TokenString String | TokenInt Int deriving(Show, Eq)
 
-tupleFunction (a,b) = (a*2, b*2)
+printToken :: Token -> String
 
-tupleVariable :: (String, String)
+printToken (TokenString myString) = myString
 
-tupleVariable = ("Hello", "GoodBye")
+printToken (TokenInt myInt) = show myInt
+
+token = TokenInt 4
+
+tokenString = TokenString "Hello"
 
 main = do
-print $ tupleFunction (2,3)
-print $ tupleVariable
-
--- functionas and variables both can be tuple
+print $ printToken token
+print $ printToken tokenString
+print token
+print tokenString
