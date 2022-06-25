@@ -1,21 +1,13 @@
-data List = Cons String List | Empty
+data Coordinate = Pt Int Int deriving Show
+-- Show call allows you to print data types
 
-emptyList, oneList, twoList :: List
+coordinate :: Coordinate
 
-emptyList = Empty
+coordinate = Pt 1 1
 
-oneList = Cons "Hello" emptyList
+coordinateFunction :: Coordinate -> Coordinate
 
-twoList = Cons "Mammooth" oneList
+coordinateFunction (Pt a b) = Pt (a *2) (b * 2)
 
-hasOneOnly :: List -> Bool
--- check if list has only 1 element
-hasOneOnly (Cons _ Empty) = True
--- _ soecifies one element
-hasOneOnly _ = False
--- every other structure of list will be false
 
-main = do
-print $hasOneOnly emptyList
-print $hasOneOnly oneList
-
+main = print $ coordinateFunction coordinate
