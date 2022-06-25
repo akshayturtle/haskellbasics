@@ -1,10 +1,9 @@
-data Operator = Add | Minus | Multiply | Divide deriving (Show, Eq)
+import Data.Char
 
-operator :: Char -> Operator
+toList :: String -> [Int]
 
-operator o | o == '+' = Add | o == '-' = Minus | o == '*' = Multiply | o == '/' = Divide
+toList (c : rest) = digitToInt c : toList rest
 
--- | is the gaurd (in a sense switch)
+toList [] = []
 
-
-main = print $ operator '+'
+main = print $ toList "1000"
