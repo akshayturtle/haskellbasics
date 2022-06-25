@@ -1,13 +1,12 @@
-data Coordinate = Pt Int Int deriving Show
--- Show call allows you to print data types
+data List = Cons Int List | Empty
 
-coordinate :: Coordinate
+addValues :: List -> Int
 
-coordinate = Pt 1 1
+addValues (Cons i j) = i + addValues j
 
-coordinateFunction :: Coordinate -> Coordinate
+addValues Empty = 0
 
-coordinateFunction (Pt a b) = Pt (a *2) (b * 2)
+list = Cons 1 (Cons 10 (Cons 3 Empty))
 
-
-main = print $ coordinateFunction coordinate
+main = do
+print $ addValues list
