@@ -1,10 +1,10 @@
-isIn c (d: rest) = if c == d then True else isIn c rest
+data Operator = Add | Minus | Multiply | Divide deriving (Show, Eq)
 
-isIn _ [] = False
+operator :: Char -> Operator
 
-isInCurry :: [Char] -> Bool
+operator o | o == '+' = Add | o == '-' = Minus | o == '*' = Multiply | o == '/' = Divide
 
-isInCurry = isIn 'a'
+-- | is the gaurd (in a sense switch)
 
 
-main = print $ isInCurry "abc"
+main = print $ operator '+'
