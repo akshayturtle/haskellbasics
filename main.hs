@@ -1,8 +1,3 @@
-setDate (day, month, year) = month ++ " " ++ day ++ ", " ++ year
+addNumbers x = x + x
 
-
-day = "1st"
-month = "July"
-year = "2000"
-
-main = putStrLn $ setDate (day, month, year)
+main = print $ addNumbers 4+5
