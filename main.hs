@@ -1,9 +1,7 @@
-import Data.Char
+fibonacci :: Int -> Int
 
-toList :: String -> [Int]
+fibonacci n | n == 1 = 1| n == 2 = 1 | otherwise = fibonacci (n - 1) + fibonacci (n - 2)
 
-toList (c : rest) = digitToInt c : toList rest
 
-toList [] = []
-
-main = print $ toList "1000"
+-- suppose we want the 5th fibonacci number
+main = print $ fibonacci 10
