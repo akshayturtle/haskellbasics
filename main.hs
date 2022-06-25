@@ -1,17 +1,21 @@
-data Token = TokenString String | TokenInt Int deriving(Show, Eq)
+data List = Cons String List | Empty
 
-printToken :: Token -> String
+emptyList, oneList, twoList :: List
 
-printToken (TokenString myString) = myString
+emptyList = Empty
 
-printToken (TokenInt myInt) = show myInt
+oneList = Cons "Hello" emptyList
 
-token = TokenInt 4
+twoList = Cons "Mammooth" oneList
 
-tokenString = TokenString "Hello"
+hasOneOnly :: List -> Bool
+-- check if list has only 1 element
+hasOneOnly (Cons _ Empty) = True
+-- _ soecifies one element
+hasOneOnly _ = False
+-- every other structure of list will be false
 
 main = do
-print $ printToken token
-print $ printToken tokenString
-print token
-print tokenString
+print $hasOneOnly emptyList
+print $hasOneOnly oneList
+
