@@ -1,12 +1,6 @@
+isIn c (d: rest) = if c == d then True else isIn c rest
 
-import Data.Char
+isIn _ [] = False
 
-data Token = Digit | Alpha deriving (Show, Eq)
-
-tokenize :: String -> [Token]
-
-tokenize (c : rest) =  if isDigit c then Digit : tokenize rest else Alpha : tokenize rest
-
-tokenize [] = []
-
-main = print $ tokenize "akshay21211"
+main = do
+print $ isIn 'm' "mamoth"
