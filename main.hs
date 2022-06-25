@@ -1,12 +1,9 @@
-data List = Cons Int List | Empty
+list = [1,2,4]
 
-addValues :: List -> Int
+getSum :: [Int] -> Int
 
-addValues (Cons i j) = i + addValues j
+getSum (i : rest) = i + getSum rest
 
-addValues Empty = 0
+getSum [] = 0
 
-list = Cons 1 (Cons 10 (Cons 3 Empty))
-
-main = do
-print $ addValues list
+main = print $ getSum list
